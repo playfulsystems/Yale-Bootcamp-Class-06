@@ -53,11 +53,18 @@ public class PlayerController : MonoBehaviour
     // called from Animation Event specified in "Run" animation
     void Footstep()
 	{
-        GetComponent<AudioSource>().PlayOneShot(footSound, 0.5f);
+        float vol = Random.Range(.15f, .75f);
+        GetComponent<AudioSource>().pitch = Random.Range(1f, 1.5f);
+
+        GetComponent<AudioSource>().PlayOneShot(footSound, vol);
     }
 
-    // co-routine
-    IEnumerator SpeedBoostRoutine()
+    void Footstep2(string i)
+    {
+    }
+
+        // co-routine
+        IEnumerator SpeedBoostRoutine()
 	{
         yield return new WaitForSeconds(5f);
 
